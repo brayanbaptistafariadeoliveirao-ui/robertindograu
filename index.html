@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Simples - Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        input {
+            width: 70%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 8px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Minhas Tarefas</h2>
+    <input type="text" id="tarefaInput" placeholder="Digite uma tarefa...">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+</div>
+
+<script>
+    function adicionarTarefa() {
+        const input = document.getElementById('tarefaInput');
+        const texto = input.value.trim();
+        
+        if (texto === '') {
+            alert('Digite uma tarefa válida!');
+            return;
+        }
+        
+        const lista = document.getElementById('listaTarefas');
+        const item = document.createElement('li');
+        item.textContent = texto;
+        
+        lista.appendChild(item);
+        input.value = '';
+    }
+</script>
+
+</body>
+</html>
